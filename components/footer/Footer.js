@@ -7,7 +7,7 @@ import Aos from "aos";
 import 'aos/dist/aos.css';
 
 // hover sets
-import "./css/hover-min.css";
+import "../css/hover-min.css";
 
 
 const Footer = (props) => {

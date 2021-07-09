@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
 import { Button } from '@material-ui/core';
@@ -12,8 +12,73 @@ import 'aos/dist/aos.css';
 // hover sets
 import "../css/hover-min.css";
 
+    //// new (Start) ////////////////////////////////////
+
+import React, {useContext, useState, useEffect } from 'react'
+import {GlobalState} from '../../GlobalState'
+import Menu from './icon/menu.svg'
+import Close from './icon/close.svg'
+import Cart from './icon/cart.svg'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////// @export from index.css ///////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //// new (Start) ////////////////////////////////////
+
+
 
 const Header = () => {
+
+    //// new (Start) ////////////////////////////////////
+
+    const state = useContext(GlobalState)
+    const [isLogged] = state.userAPI.isLogged
+    const [isAdmin] = state.userAPI.isAdmin
+    const [cart] = state.userAPI.cart
+    const [menu, setMenu] = useState(false)
+
+    const logoutUser = async () =>{
+        await axios.get('/user/logout')
+        
+        localStorage.removeItem('firstLogin')
+        
+        window.location.href = "/";
+    }
+
+    const adminRouter = () =>{
+        return(
+            <>
+                {/* <li><Link to="/create_product">Create Product</Link></li>
+                <li><Link to="/category">Categories</Link></li> */}
+                <li><Link to="/admin_profile" >
+                    <AccountCircleIcon/>
+                </Link></li>
+            </>
+        )
+    }
+
+    const loggedRouter = () =>{
+        return(
+            <>
+                <li><Link to="/history">History</Link></li>
+                <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
+            </>
+        )
+    }
+
+
+    const styleMenu = {
+        left: menu ? 0 : "-100%"
+    }
+
+    //// new (End) ////////////////////////////////////
+
+
 
     const imagesList = [
         'url("https://image.freepik.com/free-photo/groom-putting-ring-bride-s-finger_1157-338.jpg")',
@@ -23,9 +88,9 @@ const Header = () => {
         'url("https://image.freepik.com/free-photo/valentines-day-marry-me-wedding-engagement-ring-box-with-red-rose-gift_114579-402.jpg")'
     ];
 
-    // useEffect(() => {
-    //     Aos.init({ duration: 2500 });
-    // }, []);
+    useEffect(() => {
+        Aos.init({ duration: 2500 });
+    }, []);
 
     // const classes = useStyles();
     // const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -91,17 +156,7 @@ const Header = () => {
                         <span data-aos="fade up">INVITATION CARDS</span>
                     </a>
                 </HeaderNav>
-                {/* <HeaderSearch>
-                <a href='/search/results'>
-                    <input className="header__searchInput" type="text" />
-                </a>
-            </HeaderSearch>
-            <Search>
-                <a href="/search/reasults">
-                    <SearchIcon></SearchIcon>
-                </a>
-            </Search> */}
-
+                
                 {/* 
                 <ToolBar className={classes.toolbar}>
                     {user?.result ? (
@@ -154,15 +209,64 @@ const Header = () => {
                 {/* Previous Toolbar END */}
 
 
+            <ul style={styleMenu}>
+                <ToolBar>
+                {
+                    isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
+                }
+
+                <li onClick={() => setMenu(!menu)}>
+                    <img src={Close} alt="" width="30" className="menu" />
+                </li>
+
+                {/* <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li> */}
+
+                {isAdmin && adminRouter()}
+
+                {
+                isAdmin ? '' 
+                :<li>
+                    <Link to="/user_profile">
+                        <AccountCircleIcon />
+                    </Link>
+                </li>
+                }
+            
+                </ToolBar>
+            </ul>
+
+                {
+                isAdmin ? '' 
+                :<div className="cart-icon">
+                    <span>{cart.length}</span>
+                    <Link to="/cart">
+                        <img src={Cart} alt="" width="30" />
+                    </Link>
+                </div>
+            }
+
+
             </Nav>
             <CommunityButton>
-                <Button data-aos="fade-left" size="large" variant="contained" color="white" href="/communityfeedbacks">
+                <Button style={{
+                    // borderRadius: 35,
+                    backgroundColor: "#21b6ae"
+                    // padding: "18px 36px",
+                    // fontSize: "18px"
+                    }}
+                    data-aos="fade-left" size="large" variant="contained" color="gray" href="/communityfeedbacks" >
                     Join with Community
                 </Button>
             </CommunityButton>
             <Messanger data-aos="fade-up">
                 <a href="/communityfeedbacks" class='button hvr-grow-shadow' >
-                    <WhatsAppIcon href="/communityfeedbacks" fontSize="large" data-aos="fade-up" ></WhatsAppIcon>
+                    <WhatsAppIcon style={{
+                    // borderRadius: 35,
+                    // backgroundColor: "#FFA900"
+                    // padding: "18px 36px",
+                    // fontSize: "18px"
+                    }}
+                    href="/communityfeedbacks" fontSize="large" data-aos="fade-up" ></WhatsAppIcon>
                 </a>
             </Messanger>
         </Content>
@@ -185,22 +289,21 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 0 25px;
     letter-spacing: 2px;
     z-index: 3;
 `;
 
-// const Search = styled.div`
-//     z-index: 5;
-//     margin-top: 5px;
-//     a {
-//             color: #7E7272;
-
-//         }
-// `;
-
 
 const ToolBar = styled.div`
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    li {
+        color: white;
+        margin: 5px;
+        text-decoration: none;
+    }
     div {
         a {
             text-decoration: none;
@@ -219,45 +322,24 @@ const ButtonlogOut = styled.button`
 
 
 
-// const Profile = styled.div`
-//     align-items: center;
-//     display: flex;
-//     flex-flow: row nowrap;
-//     height: 100%;
-//     justify-content: flex-end;
-//     margin: 0;
-//     padding: 0;
-//     position: relative;
-//     margin-right: auto;
-//     margin-left: 0px;
-
-//     a {
-//         color: white;
-//     text-decoration: none;
-//     font-size: 10px;
-//     margin: 3px;
-//     border: 1px solid white;
-//     border-radius: 5px;
-//     padding: 5px;
-//     }
-
-//     @media (max-width: 768px) {
-//         display: none;
-//     }
-// `;
+const Profile = styled.div`
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-right: auto;
+    margin-left: 0px;
+    
+`;
 
 const Typography = styled.div`
     margin-top: 7px;
     margin-left: 50px;
-    /* color: white;
-    text-decoration: none;
-    font-size: 10px;
-    margin: 3px;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 5px; */
-
-
+   
 `;
 
 const Avatar = styled.img`
@@ -273,17 +355,6 @@ const Avatar = styled.img`
 }
 
 `;
-
-// const Logout = styled.div`
-
-//     color: white;
-//     text-decoration: none;
-//     font-size: 10px;
-//     margin: 3px;
-//     border: 1px solid white;
-//     border-radius: 5px;
-//     padding: 5px;
-// `;
 
 
 const HeaderNavIcon = styled.div`
@@ -319,50 +390,6 @@ const HeaderNavIcon = styled.div`
     }
 `;
 
-// const LogIn = styled.div`
-
-//     color: white;
-//     text-decoration: none;
-//     font-size: 10px;
-//     margin: 3px;
-//     border: 1px solid white;
-//     border-radius: 5px;
-//     padding: 5px;
-// `;
-
-// const SignUp = styled.div`
-
-//     color: white;
-//     text-decoration: none;
-//     font-size: 10px;
-//     margin: 3px;
-//     border: 1px solid white;
-//     border-radius: 5px;
-//     padding: 5px;
-
-
-// `;
-
-// const HeaderSearch = styled.div`
-//     a {
-//         input {
-//             background-color: rgba(88, 83, 83, 0.986);
-//             color: gray;
-//             border-radius: 5px;
-//         }
-
-//     }
-
-//     @media (max-width: 768px) {
-//         display: none;
-//     }
-// `;
-
-
-//  a {
-//     color: white;
-//     text-decoration: none;
-//   }
 
 const HeaderLogo = styled.div`
     a {
@@ -387,7 +414,7 @@ const HeaderNav = styled.div`
     padding: 0;
     position: relative;
     margin-right: auto;
-    margin-left: 20px;
+    margin-left: 30px;
 
   
     a {
@@ -446,6 +473,7 @@ const CommunityButton = styled.div`
     right: 0;
     top: 550px;
     z-index: 3;
+    color: black;
 `;
 
 const Messanger = styled.div`
@@ -454,7 +482,7 @@ const Messanger = styled.div`
     top: 610px;
     z-index: 3;
     text-decoration: none;
-    background-color: white;
+    background-color: #FFA900;
     padding: 10px;
     clip-path: circle();
 

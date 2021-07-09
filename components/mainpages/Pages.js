@@ -12,7 +12,11 @@ import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
 
 import {GlobalState} from '../../GlobalState'
-
+import Home from '../home/Home'
+import AdminProfile from '../adminProfile/AdminProfile'
+import UserProfile from '../userProfile/UserProfile'
+import VendorManagement from '../adminProfile/VendorManagement'
+import Services from '../services/Services'
 
 function Pages() {
     const state = useContext(GlobalState)
@@ -22,7 +26,9 @@ function Pages() {
 
     return (
         <Switch>
-            <Route path="/" exact component={Products} />
+            <Route path="/" exact component={Home} />
+            <Route path="/vendors" exact component={Products} />
+            <Route path="/services" exact component={Services} />
             <Route path="/detail/:id" exact component={DetailProduct} />
 
             <Route path="/login" exact component={isLogged ? NotFound : Login} />
@@ -32,8 +38,13 @@ function Pages() {
             <Route path="/create_product" exact component={isAdmin ? CreateProduct : NotFound} />
             <Route path="/edit_product/:id" exact component={isAdmin ? CreateProduct : NotFound} />
 
+            <Route path="/admin_profile" exact component={isAdmin ? AdminProfile : NotFound} />
+            <Route path="/vendor_management" exact component={isAdmin ? VendorManagement : NotFound} />
+
             <Route path="/history" exact component={isLogged ? OrderHistory : NotFound} />
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />
+
+            <Route path="/user_profile" exact component={isLogged ? UserProfile : NotFound} />
 
             <Route path="/cart" exact component={Cart} />
 

@@ -1,9 +1,16 @@
+import styled from "styled-components";
+import Header from "../header/Header"
+import Footer from '../footer/Footer'
+import SideBarUser from "./SideBarUser.js";
+
 import React, {useContext, useState, useEffect} from 'react'
-import {GlobalState} from '../../../GlobalState'
+import {GlobalState} from '../../GlobalState'
 import axios from 'axios'
 import PaypalButton from './PaypalButton'
 
-function Cart() {
+
+const UserProfile = (props) => {
+
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
     const [token] = state.token
@@ -80,7 +87,20 @@ function Cart() {
     if(cart.length === 0) 
         return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Cart Empty</h2> 
 
+
+
+
     return (
+        <Container>
+            <Header/>
+            <SideBarUser/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Content>
+
         <div>
             {
                 cart.map(product => (
@@ -94,11 +114,11 @@ function Cart() {
                             <p>{product.description}</p>
                             <p>{product.content}</p>
 
-                            {/* <div className="amount">
+                            <div className="amount">
                                 <button onClick={() => decrement(product._id)}> - </button>
                                 <span>{product.quantity}</span>
                                 <button onClick={() => increment(product._id)}> + </button>
-                            </div> */}
+                            </div>
                             
                             <div className="delete" 
                             onClick={() => removeProduct(product._id)}>
@@ -110,13 +130,33 @@ function Cart() {
             }
 
             <div className="total">
-                <h3>Total: Rs {total}</h3>
+                <h3>Total: $ {total}</h3>
                 <PaypalButton
                 total={total}
                 tranSuccess={tranSuccess} />
             </div>
         </div>
-    )
-}
 
-export default Cart
+
+            </Content>
+        </Container>   
+    );
+};
+
+const Container = styled.div`
+
+`;
+
+const Content = styled.div`
+    margin-left: 260px;
+    margin-right: 50px;
+`;
+
+const Bg = styled.div`
+    min-height: 1500px;
+    width: 100%;
+    background-color: #E0D6DC;
+`;
+
+
+export default UserProfile;

@@ -5,6 +5,9 @@ import Loading from '../utils/loading/Loading'
 import axios from 'axios'
 import Filters from './Filters'
 import LoadMore from './LoadMore'
+import Header from "../../header/Header";
+import Footer from '../../footer/Footer'
+import Vendors from '../../vendor/Vendors'
 
 
 function Products() {
@@ -59,6 +62,10 @@ function Products() {
     if(loading) return <div><Loading /></div>
     return (
         <>
+        <Header/>
+                   <br></br>
+                  <br></br>
+                  <br></br>
         <Filters />
         
         {
@@ -81,6 +88,9 @@ function Products() {
 
         <LoadMore />
         {products.length === 0 && <Loading />}
+
+        <Vendors/>
+        <Footer/>
         </>
     )
 }

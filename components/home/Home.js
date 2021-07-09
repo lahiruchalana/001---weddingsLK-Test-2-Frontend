@@ -18,7 +18,9 @@ import 'aos/dist/aos.css';
 
 // hover sets
 import "../css/hover-min.css";
-
+import Header from "../header/Header";
+import Headers from "../headers/Headers";
+import Footer from "../footer/Footer";
 
 const Home = (props) => {
 
@@ -38,8 +40,16 @@ const Home = (props) => {
 
     return (
         <Container>
+                  <Header/>
+                  {/* <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br> */}
+                  {/*<Headers />  */}
 
             <Content>
+
 
                 {/* Strat of background image for home */}
                 {/* Done */}
@@ -224,8 +234,7 @@ const Home = (props) => {
                 {/* Done */}
                 <br></br>
                 <br></br>
-                <br></br>
-                <br></br>
+
                 <Title data-aos="fade-down">WEDDING IDEAS AND TIPS</Title>
                 <TitleUnderLine></TitleUnderLine>
                 <BgOurIdeasTips data-aos="fade-right"></BgOurIdeasTips>
@@ -257,8 +266,8 @@ const Home = (props) => {
                 {/* End of background image for home */}
                 <br></br>
                 <br></br>
-                <br></br>
-                <br></br>
+
+
                 <SectionVendors>
                     <BgImageVendors data-aos="fade-down">
                         <img data-aos="fade-down" src="/images/BgImageVendors.jpg" />
@@ -465,6 +474,7 @@ const Home = (props) => {
                     <BtnVendorSignUp data-aos="fade-up">Vendor Sign Up</BtnVendorSignUp>
                 </a>
             </Content>
+            <Footer/>
         </Container >
     );
 }

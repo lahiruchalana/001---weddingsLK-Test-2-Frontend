@@ -118,7 +118,8 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-
+margin-left: 250px;
+margin-right: 50px;
 `;
 
 const Bg = styled.div`

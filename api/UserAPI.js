@@ -6,6 +6,9 @@ function UserAPI(token) {
     const [isAdmin, setIsAdmin] = useState(false)
     const [cart, setCart] = useState([])
     const [history, setHistory] = useState([])
+    // /////////////////////////////////////////////////////////
+    // const [user, setUser] = useState('')
+    // /////////////////////////////////////////////////////////
 
     useEffect(() =>{
         if(token){
@@ -19,6 +22,9 @@ function UserAPI(token) {
                     res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
 
                     setCart(res.data.cart)
+    // /////////////////////////////////////////////////////////
+    //                 setUser(res.data.user)
+    // /////////////////////////////////////////////////////////
 
                 } catch (err) {
                     alert(err.response.data.msg)
@@ -56,7 +62,8 @@ function UserAPI(token) {
         isAdmin: [isAdmin, setIsAdmin],
         cart: [cart, setCart],
         addCart: addCart,
-        history: [history, setHistory]
+        history: [history, setHistory],
+        // user: [user, setUser]
     }
 }
 

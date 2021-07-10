@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import Footer from '../../footer/Footer'
+import Header from '../../header/Header'
 
 function Register() {
     const [user, setUser] = useState({
@@ -27,6 +29,14 @@ function Register() {
     }
 
     return (
+        <div>
+            <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         <div className="login-page">
             <form onSubmit={registerSubmit}>
                 <h2>Register</h2>
@@ -44,6 +54,12 @@ function Register() {
                     <Link to="/login">Login</Link>
                 </div>
             </form>
+        </div>
+        <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+        <Footer/>
         </div>
     )
 }

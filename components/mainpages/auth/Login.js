@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import Footer from '../../footer/Footer'
+import Header from '../../header/Header'
 
 function Login() {
     const [user, setUser] = useState({
@@ -26,6 +28,14 @@ function Login() {
     }
 
     return (
+        <div>
+            <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         <div className="login-page">
             <form onSubmit={loginSubmit}>
                 <h2>Login</h2>
@@ -40,6 +50,14 @@ function Login() {
                     <Link to="/register">Register</Link>
                 </div>
             </form>
+        </div>
+        <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+        <Footer/>
         </div>
     )
 }

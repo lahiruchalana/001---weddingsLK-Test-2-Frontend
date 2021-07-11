@@ -8,17 +8,18 @@ function ProductsAPI() {
     const [category, setCategory] = useState('')
     const [sort, setSort] = useState('')
     const [search, setSearch] = useState('')
+    const [searchAddress, setSearchAddress] = useState('')
     const [page, setPage] = useState(1)
     const [result, setResult] = useState(0)
 
     useEffect(() =>{
         const getProducts = async () => {
-            const res = await axios.get(`/api/products?limit=${page*9}&${category}&${sort}&title[regex]=${search}`)
+            const res = await axios.get(`/api/products?limit=${page*9}&${category}&${sort}&title[regex]=${search}&address_line_1[regex]=${searchAddress}`)
             setProducts(res.data.products)
             setResult(res.data.result)
         }
         getProducts()
-    },[callback, category, sort, search, page])
+    },[callback, category, sort, search, page, searchAddress])
     
     return {
         products: [products, setProducts],
@@ -27,6 +28,7 @@ function ProductsAPI() {
         sort: [sort, setSort],
         search: [search, setSearch],
         page: [page, setPage],
+        searchAddress: [searchAddress, setSearchAddress],
         result: [result, setResult]
     }
 }

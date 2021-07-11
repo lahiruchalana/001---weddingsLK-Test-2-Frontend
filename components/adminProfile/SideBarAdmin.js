@@ -29,7 +29,7 @@ const SideBarAdmin = (props) => {
                     </Logo>
                     <Designation>Admin</Designation>
                     <Row>
-                        <a href="/">
+                        <a href="/admin_profile">
                             <HomeIcon></HomeIcon>
                             <BtnYourServices>Home</BtnYourServices>
                         </a>
@@ -38,6 +38,12 @@ const SideBarAdmin = (props) => {
                         <a href="/vendor_management">
                             <FolderSharedIcon></FolderSharedIcon>
                             <BtnBugdetReport>Vendor Management</BtnBugdetReport>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/admin_services">
+                            <YourService></YourService>
+                            <BtnMessanger>Our Services</BtnMessanger>
                         </a>
                     </Row>
                     <Row>
@@ -50,12 +56,6 @@ const SideBarAdmin = (props) => {
                         <a href="/">
                             <PlaylistAddIcon></PlaylistAddIcon>
                             <BtnCurrentVendors>Pending Weddings</BtnCurrentVendors>
-                        </a>
-                    </Row>
-                    <Row>
-                        <a href="/">
-                            <YourService></YourService>
-                            <BtnMessanger>Our Services</BtnMessanger>
                         </a>
                     </Row>
                     <Row>

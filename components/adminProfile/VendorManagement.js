@@ -13,9 +13,16 @@ import {useHistory, useParams} from 'react-router-dom'
 const initialState = {
     product_id: '',
     title: '',
-    price: 0,
-    description: 'Vendor description.',
-    content: 'Add the content of the vendor',
+    price: 1000,
+    max_price: 50000,
+    description: 'Our elegant flower arrangements will delight your guests as much as they delight you. Choose us to arrange your lovely memorable moments. ',
+    content: 'Over the years we have created a unique ambiance for events through decorations. Whether it is simple or elegant, traditional or contemporary.',
+    address_line_1: '',
+    address_line_2: 'Street',
+    address_line_3: 'No 286/45',
+    other_services: 'Wedding Venue',
+    contact_number_1: 772536985,
+    contact_number_2: 711856485,
     category: '',
     _id: ''
 }
@@ -120,7 +127,7 @@ const VendorManagement = () => {
                 })
             }
             setCallback(!callback)
-            history.push("/")
+            history.push("/vendors")
         } catch (err) {
             alert(err.response.data.msg)
         }
@@ -144,7 +151,7 @@ const VendorManagement = () => {
             <Content>
             
 
-        <div className="create_product">
+            <div className="create_product">
             <div className="upload">
                 <input type="file" name="file" id="file_up" onChange={handleUpload}/>
                 {
@@ -160,7 +167,7 @@ const VendorManagement = () => {
 
             <form onSubmit={handleSubmit}>
                 <div className="row">
-                    <label htmlFor="product_id">Vendor ID</label>
+                    <label htmlFor="product_id">Product ID</label>
                     <input type="text" name="product_id" id="product_id" required
                     value={product.product_id} onChange={handleChangeInput} disabled={onEdit} />
                 </div>
@@ -172,9 +179,14 @@ const VendorManagement = () => {
                 </div>
 
                 <div className="row">
-                    <label htmlFor="price">Minimum Price</label>
+                    <label htmlFor="price">Price</label>
                     <input type="number" name="price" id="price" required
                     value={product.price} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="price">Maximum Price</label>
+                    <input type="number" name="max_price" id="max_price" 
+                    value={product.max_price} onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
@@ -190,9 +202,41 @@ const VendorManagement = () => {
                 </div>
 
                 <div className="row">
-                    <label htmlFor="categories">Services: </label>
+                    <label htmlFor="title">Address Line 1</label>
+                    <input type="text" name="address_line_1" id="address_line_1" required
+                    value={product.address_line_1} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="title">Address Line 2</label>
+                    <input type="text" name="address_line_2" id="address_line_2" required
+                    value={product.address_line_2} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="title">Address Line 3</label>
+                    <input type="text" name="address_line_3" id="address_line_3" required
+                    value={product.address_line_3} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="description">Other Services</label>
+                    <textarea type="text" name="other_services" id="other_services" required
+                    value={product.other_services} rows="5" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="price">Contact Number 1</label>
+                    <input type="number" name="contact_number_1" id="contact_number_1" 
+                    value={product.contact_number_1} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="price">Contact Number 2</label>
+                    <input type="number" name="contact_number_2" id="contact_number_2" 
+                    value={product.contact_number_2} onChange={handleChangeInput} />
+                </div>
+
+
+                <div className="row">
+                    <label htmlFor="categories">Categories: </label>
                     <select name="category" value={product.category} onChange={handleChangeInput} >
-                        <option value="">Please select a Service</option>
+                        <option value="">Please select a category</option>
                         {
                             categories.map(category => (
                                 <option value={category._id} key={category._id}>

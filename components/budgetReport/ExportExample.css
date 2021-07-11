@@ -21,6 +21,8 @@
 
 .button-area button {
   margin-right: 10px;
+  font-size: 22px;
+  color: bisque;
 }
 
 .k-pdf-export {

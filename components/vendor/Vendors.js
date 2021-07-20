@@ -48,13 +48,13 @@ const Vendors = (props) => {
                 <Title1>VENDORS</Title1>
                 <TitleUnderline1></TitleUnderline1>
                 <P1>More than hundreds of vendors have connected with us to provide wide range of services for weddings</P1>
-                <SearchBar>
+                {/* <SearchBar>
                     <input></input>
                     <a href="/Vendors/Search/Results">
                         <SearchIcon></SearchIcon>
                     </a>
-                </SearchBar>
-                <P2>Search vendors here</P2>
+                </SearchBar> */}
+                {/* <P2>Search vendors here</P2> */}
                 <BgColoredSection1></BgColoredSection1>
 
                 <SectionVendors>

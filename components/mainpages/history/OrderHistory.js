@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import Header from '../../header/Header'
 
 function OrderHistory() {
     const state = useContext(GlobalState)
@@ -30,6 +31,11 @@ function OrderHistory() {
     },[token, isAdmin, setHistory])
 
     return (
+        <div>
+            <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
         <div className="history-page">
             <h2>History</h2>
 
@@ -55,6 +61,7 @@ function OrderHistory() {
                     }
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }

@@ -5,13 +5,19 @@ import CurrentVendors from '@material-ui/icons/Store';
 import BugdetReport from '@material-ui/icons/LocalAtm';
 import Messanger from '@material-ui/icons/Message';
 import Settings from '@material-ui/icons/SettingsApplications';
-import React, { useState } from 'react';
+import HomeIcon from '@material-ui/icons/Home';
+import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
 
-
+import React, {useContext, useState, useEffect} from 'react'
+import {GlobalState} from '../../GlobalState'
 
 const SideBarUser = (props) => {
 
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
+    
+    const state = useContext(GlobalState)
+    // const [user, setUser] = state.userAPI.user
+
 
     return (
         <Container>
@@ -26,11 +32,35 @@ const SideBarUser = (props) => {
                             <img src= "../images/Logo.png"/> 
                         </a>
                     </Logo>
-                    <TxtCoupleNames>{user?.result.name}</TxtCoupleNames>
+                    <TxtCoupleNames>Lahiru Chalana</TxtCoupleNames>
                     <Row>
                         <a href="/">
+                            <HomeIcon></HomeIcon>
+                            <BtnYourServices>Home</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/user_dashboard_confirmed_vendors">
                             <YourService></YourService>
-                            <BtnYourServices>Your Services</BtnYourServices>
+                            <BtnYourServices>Confirmed Services</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/user_dashboard_wish_to_buy">
+                            <YourService></YourService>
+                            <BtnYourServices>Wish To Buy</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/user_profile">
+                        <AddToPhotosIcon></AddToPhotosIcon>
+                            <BtnYourServices>Your Cart</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/budget_report">
+                            <BugdetReport></BugdetReport>
+                            <BtnBugdetReport>Budget Report</BtnBugdetReport>
                         </a>
                     </Row>
                     <Row>
@@ -43,12 +73,6 @@ const SideBarUser = (props) => {
                         <a href="/">
                             <CurrentVendors></CurrentVendors>
                             <BtnCurrentVendors>Current Vendors</BtnCurrentVendors>
-                        </a>
-                    </Row>
-                    <Row>
-                        <a href="/">
-                            <BugdetReport></BugdetReport>
-                            <BtnBugdetReport>Budget Report</BtnBugdetReport>
                         </a>
                     </Row>
                     <Row>
@@ -130,7 +154,7 @@ const TxtCoupleNames = styled.div`
     width: 210px;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding: 30px 50px;
+    padding: 10px 30px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     background-color: #FFFFFF;

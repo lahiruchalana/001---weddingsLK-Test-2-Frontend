@@ -4,12 +4,37 @@ import {GlobalState} from '../../../GlobalState'
 import Loading from '../utils/loading/Loading'
 import {useHistory, useParams} from 'react-router-dom'
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////
+///////////////    Pls go to VendorManagement page all the code doing in there       ///////
+//////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
 const initialState = {
     product_id: '',
     title: '',
     price: 0,
+    max_price: 0,
     description: 'How to and tutorial videos of cool CSS effect, Web Design ideas,JavaScript libraries, Node.',
     content: 'Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.',
+    content_2: '',
+    content_3: 'Add more Info of Services',
+    content_4: 'Add more Info of Services',
+    content_5: 'Add more Info of Services',
+    address_line_1: '',
+    address_line_2: '',
+    address_line_3: '',
+    other_services: '',
+    contact_number_1: 0,
+    contact_number_2: 0,
     category: '',
     _id: ''
 }
@@ -154,6 +179,11 @@ function CreateProduct() {
                     <input type="number" name="price" id="price" required
                     value={product.price} onChange={handleChangeInput} />
                 </div>
+                <div className="row">
+                    <label htmlFor="price">Maximum Price</label>
+                    <input type="number" name="price" id="price" 
+                    value={product.max_price} onChange={handleChangeInput} />
+                </div>
 
                 <div className="row">
                     <label htmlFor="description">Description</label>
@@ -166,6 +196,58 @@ function CreateProduct() {
                     <textarea type="text" name="content" id="content" required
                     value={product.content} rows="7" onChange={handleChangeInput} />
                 </div>
+                <div className="row">
+                    <label htmlFor="content">Add More Info</label>
+                    <textarea type="text" name="content_2" id="content_2" required
+                    value={product.content_2} rows="7" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="content">Add More Info</label>
+                    <textarea type="text" name="content_3" id="content_3" required
+                    value={product.content_3} rows="7" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="content_4">Add More Info</label>
+                    <textarea type="text" name="content_4" id="content_4" required
+                    value={product.content_4} rows="7" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="content_5">Add More Info</label>
+                    <textarea type="text" name="content_5" id="content_5" required
+                    value={product.content_5} rows="7" onChange={handleChangeInput} />
+                </div>
+
+                <div className="row">
+                    <label htmlFor="title">Address Line 1</label>
+                    <input type="text" name="title" id="title" required
+                    value={product.address_line_1} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="title">Address Line 2</label>
+                    <input type="text" name="title" id="title" required
+                    value={product.address_line_2} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="title">Address Line 3</label>
+                    <input type="text" name="title" id="title" required
+                    value={product.address_line_3} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="description">Other Services</label>
+                    <textarea type="text" name="description" id="description" required
+                    value={product.other_services} rows="5" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="price">Contact Number 1</label>
+                    <input type="number" name="price" id="price" 
+                    value={product.contact_number_1} onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="price">Contact Number 2</label>
+                    <input type="number" name="price" id="price" 
+                    value={product.contact_number_2} onChange={handleChangeInput} />
+                </div>
+
 
                 <div className="row">
                     <label htmlFor="categories">Categories: </label>

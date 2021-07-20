@@ -1,26 +1,26 @@
 import React, {useContext} from 'react'
-import {GlobalState} from '../../../GlobalState'
+import {GlobalState} from '../../GlobalState'
 
 function Filters() {
     const state = useContext(GlobalState)
-    const [categories] = state.categoriesAPI.categories
+    // const [categories] = state.categoriesAPI.categories
 
-    const [category, setCategory] = state.productsAPI.category
-    const [sort, setSort] = state.productsAPI.sort
-    const [search, setSearch] = state.productsAPI.search
-    const [searchAddress, setSearchAddress] = state.productsAPI.searchAddress
+    // const [category, setCategory] = state.productsAPI.category
+    const [sort, setSort] = state.weddingPlansAPI.sort
+    const [search, setSearch] = state.weddingPlansAPI.search
+    // const [searchAddress, setSearchAddress] = state.weddingPlansAPI.searchAddress
 
 
     const handleCategory = e => {
-        setCategory(e.target.value)
+        // setCategory(e.target.value)////////////////////////////////////find this error//////////////////////////////////////////////////////////////////
         setSearch('')
-        setSearchAddress('')
+        // setSearchAddress('')
     }
 
     
     return (
         <div className="filter_menu">
-            <div className="row">
+            {/* <div className="row">
                 <span>Services: </span>
                 <select name="category" value={category} onChange={handleCategory} >
                     <option value=''>All Services</option>
@@ -32,9 +32,9 @@ function Filters() {
                         ))
                     }
                 </select>
-            </div>
+            </div> */}
 
-            <input type="text" value={search} placeholder="Search Your Vendors!"
+            <input type="text" value={search} placeholder="Search Your Wedding Plans!"
             onChange={e => setSearch(e.target.value.toLowerCase())} />
 
             {/* <input type="text" value={searchAddress} placeholder="Search Your Nearest Vendor!!! "

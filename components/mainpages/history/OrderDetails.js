@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {useParams} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
+import Header from '../../header/Header'
 
 function OrderDetails() {
     const state = useContext(GlobalState)
@@ -21,6 +22,11 @@ function OrderDetails() {
     if(orderDetails.length === 0) return null;
 
     return (
+        <div>
+        <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
         <div className="history-page">
             <table>
                 <thead>
@@ -64,6 +70,7 @@ function OrderDetails() {
                     
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }

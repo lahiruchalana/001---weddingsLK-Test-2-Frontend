@@ -30,11 +30,14 @@ const Home = (props) => {
 
 
     const imagesList = [
-        'url("https://image.freepik.com/free-photo/groom-putting-ring-bride-s-finger_1157-338.jpg")',
-        'url("https://image.freepik.com/free-photo/groom-bride-together-are-holding-wedding-pink-bouquet_8353-9794.jpg")',
-        'url("https://image.freepik.com/free-photo/groom-black-tuxedo-hugs-tender-stunning-bride-while-they-stand_8353-8050.jpg")',
-        'url("https://image.freepik.com/free-photo/young-beautiful-stylish-woman-wedding-dress_285396-7822.jpg")',
-        'url("https://image.freepik.com/free-photo/valentines-day-marry-me-wedding-engagement-ring-box-with-red-rose-gift_114579-402.jpg")'
+        // 'url("https://static.independent.co.uk/2021/05/22/13/newFile-1.jpg?width=990&auto=webp&quality=75")',
+        'url("https://images.pexels.com/photos/3217513/pexels-photo-3217513.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")',
+        'url("https://images.pexels.com/photos/2403569/pexels-photo-2403569.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")',
+        'url("https://images.pexels.com/photos/2496344/pexels-photo-2496344.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")',
+        'url("https://images.pexels.com/photos/948185/pexels-photo-948185.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")',
+        'url("https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")',
+        // 'url("https://images.pexels.com/photos/157757/wedding-dresses-fashion-character-bride-157757.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")',
+        'url("https://images.pexels.com/photos/1589820/pexels-photo-1589820.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")'
     ];
 
 
@@ -55,8 +58,8 @@ const Home = (props) => {
                 {/* Done */}
                 <AnimatedImages
                     colors={imagesList}
-                    duration={2}
-                    delay={1}
+                    duration={3}
+                    delay={2}
                     timingFunction="ease-out"
                 >
                     {/* <div className="App">

@@ -13,8 +13,11 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
 
             <div className="product_box">
                 <h2 title={product.title}>{product.title}</h2>
-                <span>Rs {product.price}</span>
+                <span>Rs {product.price} - Rs {product.max_price}</span>
                 <p>{product.description}</p>
+                <h5>No: {product.contact_number_1} / {product.contact_number_2}</h5>
+                <h5>Address: {product.address_line_1},{product.address_line_2}</h5>
+                <h5>Other Services: {product.other_services}</h5>
             </div>
 
             

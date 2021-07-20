@@ -39,6 +39,7 @@ const Header = () => {
     const state = useContext(GlobalState)
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
+    const [isEmployee] = state.userAPI.isEmployee
     const [cart] = state.userAPI.cart
     const [menu, setMenu] = useState(false)
 
@@ -56,6 +57,18 @@ const Header = () => {
                 {/* <li><Link to="/create_product">Create Product</Link></li>
                 <li><Link to="/category">Categories</Link></li> */}
                 <li><Link to="/admin_profile" >
+                    <AccountCircleIcon/>
+                </Link></li>
+            </>
+        )
+    }
+
+    const employeeRouter = () =>{
+        return(
+            <>
+                {/* <li><Link to="/create_product">Create Product</Link></li>
+                <li><Link to="/category">Categories</Link></li> */}
+                <li><Link to="/employee_profile" >
                     <AccountCircleIcon/>
                 </Link></li>
             </>
@@ -131,7 +144,7 @@ const Header = () => {
                 </HeaderLogo>
                 <HeaderNav>
                     {/* TODO -- make drop down here */}
-                    <a href='/weddingplans'>
+                    <a href='/wedding_plans'>
                         <span data-aos="fade up">WEDDING PLANS</span>
                     </a>
                     <a href='/services'>
@@ -143,7 +156,7 @@ const Header = () => {
                     <a href='/shops'>
                         <span data-aos="fade up">SHOPS</span>
                     </a>
-                    <a href='/Galleries'>
+                    <a href='/galleries'>
                         <span data-aos="fade up">GALLERIES</span>
                     </a>
                     <a href='/about'>
@@ -222,21 +235,24 @@ const Header = () => {
                 {/* <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li> */}
 
                 {isAdmin && adminRouter()}
+                {isEmployee && employeeRouter()}
 
                 {
-                isAdmin ? '' 
+                isAdmin || isEmployee ? '' 
                 :<li>
                     <Link to="/user_profile">
                         <AccountCircleIcon />
                     </Link>
                 </li>
                 }
+
+                
             
                 </ToolBar>
             </ul>
 
                 {
-                isAdmin ? '' 
+                isAdmin || isEmployee ? '' 
                 :<div className="cart-icon">
                     <span>{cart.length}</span>
                     <Link to="/cart">

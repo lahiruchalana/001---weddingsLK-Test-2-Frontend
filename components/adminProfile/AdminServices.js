@@ -64,7 +64,7 @@ function Categories() {
             <br></br>
         <div className="categories">
             <form onSubmit={createCategory}>
-                <label htmlFor="category">Category</label>
+                <label htmlFor="category">Add Services</label>
                 <input type="text" name="category" value={category} required
                 onChange={e => setCategory(e.target.value)} />
 

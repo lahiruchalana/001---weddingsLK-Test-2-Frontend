@@ -17,6 +17,10 @@ const initialState = {
     max_price: 50000,
     description: 'Our elegant flower arrangements will delight your guests as much as they delight you. Choose us to arrange your lovely memorable moments. ',
     content: 'Over the years we have created a unique ambiance for events through decorations. Whether it is simple or elegant, traditional or contemporary.',
+    content_2: '',
+    content_3: 'Add more Info of Services',
+    content_4: 'Add more Info of Services',
+    content_5: 'Add more Info of Services',
     address_line_1: '',
     address_line_2: 'Street',
     address_line_3: 'No 286/45',
@@ -199,6 +203,28 @@ const VendorManagement = () => {
                     <label htmlFor="content">Content</label>
                     <textarea type="text" name="content" id="content" required
                     value={product.content} rows="7" onChange={handleChangeInput} />
+                </div>
+
+
+                <div className="row">
+                    <label htmlFor="content">Add More Info</label>
+                    <textarea type="text" name="content_2" id="content_2" required
+                    value={product.content_2} rows="7" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="content">Add More Info</label>
+                    <textarea type="text" name="content_3" id="content_3" required
+                    value={product.content_3} rows="7" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="content_4">Add More Info</label>
+                    <textarea type="text" name="content_4" id="content_4" required
+                    value={product.content_4} rows="7" onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="content_5">Add More Info</label>
+                    <textarea type="text" name="content_5" id="content_5" required
+                    value={product.content_5} rows="7" onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">

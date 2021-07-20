@@ -29,9 +29,21 @@ const SideBarAdmin = (props) => {
                     </Logo>
                     <Designation>Admin</Designation>
                     <Row>
-                        <a href="/admin_profile">
+                        <a href="/">
                             <HomeIcon></HomeIcon>
                             <BtnYourServices>Home</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/">
+                            <HomeIcon></HomeIcon>
+                            <BtnYourServices>Confirmed Customers</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/admin_profile">
+                            <HomeIcon></HomeIcon>
+                            <BtnYourServices>Customer's Cart</BtnYourServices>
                         </a>
                     </Row>
                     <Row>
@@ -44,6 +56,12 @@ const SideBarAdmin = (props) => {
                         <a href="/admin_services">
                             <YourService></YourService>
                             <BtnMessanger>Our Services</BtnMessanger>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/create_weddingPlan">
+                            <WeddingPlan></WeddingPlan>
+                            <BtnWeddingPlan>Wedding Plan Mngmt</BtnWeddingPlan> 
                         </a>
                     </Row>
                     <Row>
@@ -70,12 +88,12 @@ const SideBarAdmin = (props) => {
                             <BtnMessanger>Add New Services</BtnMessanger>
                         </a>
                     </Row>
-                    <Row>
+                    {/* <Row>
                         <a href="/">
                             <EventIcon></EventIcon>
                             <BtnMessanger>Schedule</BtnMessanger>
                         </a>
-                    </Row>
+                    </Row> */}
                     <Row>
                         <a href="/">
                             <AssignmentIndIcon></AssignmentIndIcon>
@@ -94,12 +112,12 @@ const SideBarAdmin = (props) => {
                             <BtnMessanger>Tasks Management</BtnMessanger>
                         </a>
                     </Row>
-                    <Row>
+                    {/* <Row>
                         <a href="/">
                             <AssessmentIcon></AssessmentIcon>
                             <BtnMessanger>Analytics</BtnMessanger>
                         </a>
-                    </Row>
+                    </Row> */}
                     <RowLast>
                         <a href="/">
                             <Settings></Settings>

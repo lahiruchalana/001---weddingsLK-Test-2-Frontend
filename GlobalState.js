@@ -5,9 +5,8 @@ import CategoriesAPI from './api/CategoriesAPI'
 
 
 
-
 import UserInfoAPI from './api/UserInfoAPI'
-
+import WeddingPlansAPI from './api/WeddingPlansAPI'
 
 
 
@@ -44,7 +43,8 @@ export const DataProvider = ({children}) =>{
         userAPI: UserAPI(token),
         categoriesAPI: CategoriesAPI(),
 
-        userInfoAPI: UserInfoAPI()
+        userInfoAPI: UserInfoAPI(),
+        weddingPlansAPI: WeddingPlansAPI()
 
     }
 

@@ -9,6 +9,8 @@ function UserAPI(token) {
     const [history, setHistory] = useState([])
     const [confirmed_vendors, setConfirmedVendors] = useState([])
     const [wish_to_buy, setWishToBuy] = useState([])
+    const [wish_to_buy_wedding_plans, setWishToBuyWeddingPlans] = useState([])
+    const [confirmed_wedding_plans, setConfirmedWeddingPlans] = useState([])
     // /////////////////////////////////////////////////////////
     // const [user, setUser] = useState('')
     // /////////////////////////////////////////////////////////
@@ -28,6 +30,8 @@ function UserAPI(token) {
                     setCart(res.data.cart)
                     setConfirmedVendors(res.data.confirmed_vendors)
                     setWishToBuy(res.data.wish_to_buy)
+                    setConfirmedWeddingPlans(res.data.confirmed_wedding_plans)
+                    setWishToBuyWeddingPlans(res.data.wish_to_buy_wedding_plans)
 
     // /////////////////////////////////////////////////////////
     //                 setUser(res.data.user)
@@ -60,7 +64,7 @@ function UserAPI(token) {
             })
 
         }else{
-            alert("This product has been added to cart.")
+            alert("This Vendor Service has been added to your Cart.")
         }
     }
 
@@ -80,7 +84,7 @@ function UserAPI(token) {
             })
 
         }else{
-            alert("This product has been added to Confirmed Vendors in your profile.")
+            alert("This Vendor Service has been added to Confirmed Vendors in your profile.")
         }
     }
 
@@ -100,10 +104,53 @@ function UserAPI(token) {
             })
 
         }else{
-            alert("This product has been added to cart.")
+            alert("This vendor Service has been added to Your Wish List and Check it on your Profile.")
         }
     }
 
+
+
+    const addConfirmedWeddingPlans = async (weddingPlan) => {
+        if(!isLogged) return alert("Please login to continue confirming the Wedding Plan")
+
+        const check = confirmed_wedding_plans.every(item =>{
+            return item._id !== weddingPlan._id
+        })
+
+        if(check){
+            setConfirmedWeddingPlans([...confirmed_wedding_plans, {...weddingPlan, quantity: 1}])
+
+            await axios.patch('/user/addconfirmed_wedding_plans', {confirmed_wedding_plans: [...confirmed_wedding_plans, {...weddingPlan, quantity: 1}]}, {
+                headers: {Authorization: token}
+            })
+
+        }else{
+            alert('This Wedding Plan has been added to "C Wedding Plan" of your profile.')
+        }
+    }
+
+
+    const addWishToBuyWeddingPlans = async (weddingPlan) => {
+        if(!isLogged) return alert("Please login to continue adding the Wedding Plan in Your Profile")
+
+        const check = wish_to_buy_wedding_plans.every(item =>{
+            return item._id !== weddingPlan._id
+        })
+
+        if(check){
+            setWishToBuyWeddingPlans([...wish_to_buy_wedding_plans, {...weddingPlan, quantity: 1}])
+
+            await axios.patch('/user/addwish_to_buy_wedding_plans', {wish_to_buy_wedding_plans: [...wish_to_buy_wedding_plans, {...weddingPlan, quantity: 1}]}, {
+                headers: {Authorization: token}
+            })
+
+        }else{
+            alert('This Wedding Plan has been added to Your Wish List and check it on "WL Wedding Plans" of Your Profile.')
+        }
+    }
+
+
+    
     return {
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
@@ -114,6 +161,10 @@ function UserAPI(token) {
         addConfirmedVendors: addConfirmedVendors,
         wish_to_buy: [wish_to_buy, setWishToBuy],
         addWishToBuy: addWishToBuy,
+        confirmed_wedding_plans: [confirmed_wedding_plans, setConfirmedWeddingPlans],
+        addConfirmedWeddingPlans: addConfirmedWeddingPlans,
+        wish_to_buy_wedding_plans: [wish_to_buy_wedding_plans, setWishToBuyWeddingPlans],
+        addWishToBuyWeddingPlans: addWishToBuyWeddingPlans,
         history: [history, setHistory],
         // user: [user, setUser]
     }

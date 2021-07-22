@@ -10,32 +10,31 @@ import SideBarUser from './SideBarUser';
 import {Link} from 'react-router-dom'
 
 
-function WishToBuy() {
+function ConfirmedWeddingPlans() {
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
-    const [wish_to_buy, setWishToBuy] = state.userAPI.wish_to_buy
-    const [confirmed_vendors, setConfirmedVendors] = state.userAPI.confirmed_vendors
+    const [wish_to_buy_wedding_plans, setWishToBuyWeddingPlans] = state.userAPI.wish_to_buy_wedding_plans
     const [token] = state.token
     const [total, setTotal] = useState(0)
-    const addConfirmedVendors = state.userAPI.addConfirmedVendors
+    const addConfirmedWeddingPlans = state.userAPI.addConfirmedWeddingPlans
 
 
     //////////////////get total of prices of [cart] //////////////////
-    useEffect(() =>{
-        const getTotal = () =>{
-            const total = wish_to_buy.reduce((prev, item) => {
-                return prev + (item.price * item.quantity)
-            },0)
+    // useEffect(() =>{
+    //     const getTotal = () =>{
+    //         const total = confirmed_vendors.reduce((prev, item) => {
+    //             return prev + (item.price * item.quantity)
+    //         },0)
 
-            setTotal(total)
-        }
+    //         setTotal(total)
+    //     }
 
-        getTotal()
+    //     getTotal()
 
-    },[cart])
+    // },[cart])
 
-    const addToWishToBuy = async (wish_to_buy) =>{
-        await axios.patch('/user/addwish_to_buy', {wish_to_buy}, {
+    const addToWishToBuyWeddingPlans = async (wish_to_buy_wedding_plans) =>{
+        await axios.patch('/user/addwish_to_buy_wedding_plans', {wish_to_buy_wedding_plans}, {
             headers: {Authorization: token}
         })
     }
@@ -63,16 +62,16 @@ function WishToBuy() {
     //     addToCart(cart)
     // }
     ///////////// remove vendors /////////////
-    const removeWishToBuy = id =>{
-        if(window.confirm("Do you want to Remove this Vendor?")){
-            wish_to_buy.forEach((item, index) => {
+    const removeWishToBuyWeddingPlans = id =>{
+        if(window.confirm("Do you want to Remove this Wedding Plan from Wish List?")){
+            wish_to_buy_wedding_plans.forEach((item, index) => {
                 if(item._id === id){
-                    wish_to_buy.splice(index, 1)
+                    wish_to_buy_wedding_plans.splice(index, 1)
                 }
             })
 
-            setWishToBuy([...wish_to_buy])
-            addToWishToBuy(wish_to_buy)
+            setWishToBuyWeddingPlans([...wish_to_buy_wedding_plans])
+            addToWishToBuyWeddingPlans(wish_to_buy_wedding_plans)
         }
     }
      /////////////////// about payment /////////////////
@@ -89,7 +88,7 @@ function WishToBuy() {
     // }
 
 
-    if(wish_to_buy.length === 0) 
+    if(wish_to_buy_wedding_plans.length === 0) 
         return (<Content>
             <Header/>
             <SideBarUser/>
@@ -98,9 +97,8 @@ function WishToBuy() {
             <br></br>
             <br></br>
             <br></br>
-        <h2 style={{marginLeft: "250px", textAlign: "center", fontSize: "40px"}}>There is no any Wish to Buy Vendors</h2>
+        <h2 style={{marginLeft: "250px", textAlign: "center", fontSize: "40px"}}>There is no any Wedding Plans in the Wish List</h2>
         </Content>);
- 
 
     return (
         <div>
@@ -112,62 +110,58 @@ function WishToBuy() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>This is Your Vendors of Wish To Buy List</Text1>
+            <Text1>Your Wish List of Wedding Plans</Text1>
             {
-                wish_to_buy.map(product => (
-                    <div className="detail cart" key={product._id}>
-                        <img src={product.images.url} alt="" />
-                        
-                        <div className="box-detail">
-                        <h2>{product.title}</h2>
-                        <LineLite1></LineLite1>
-                    <h4>Rs {product.price} - {product.max_price}</h4>
-                    <LineLite1></LineLite1>
-                    <h4>{product.address_line_1}</h4>
-                    <LineLite1></LineLite1>
-                    <Text5>{product.description}</Text5>
-                    <Line3></Line3>
-                    <Text6>{product.content}</Text6>
-                    <Text1>{product.content_2}</Text1>
-                    <LineLite1></LineLite1>
-                    <div className="row">
-                    <Text2>{product.content_3}</Text2>
-                    <Text2>{product.content_4}</Text2>
-                    </div>
-                    <LineLite1></LineLite1>
-                        <Text2>{product.content_5}</Text2>
-                    <Line3></Line3>
-                    <h4>Total Buyers: {product.sold}</h4>
-                    <Line2></Line2>
-                    <h4>Contact: {product.contact_number_2} / {product.contact_number_1}</h4>
-                    <Line1></Line1>
-                    <Text4>{product.address_line_1}</Text4>
-                    <Text4>{product.address_line_2}</Text4>
-                    <Text4>{product.address_line_3}</Text4>
-                    <LineLite1></LineLite1>
-                            {/* <Text1>If you would like to buy or getting more information about this service, please wait a moment. One of our employees will contact you as soon as possible by a mobile phone call. If you do not wish to purchase this service, remove it by clicking the Remove button at the top of this vendor's service. </Text1> */}
-                            <h6>Prices can be changed. this price is minimum price of the {product.title}</h6>
+                wish_to_buy_wedding_plans.map(weddingPlan => (
+                    <div key={weddingPlan._id}>
+                        <Product_card>
 
-                            {/* <div className="amount">
-                                <button onClick={() => decrement(product._id)}> - </button>
-                                <span>{product.quantity}</span>
-                                <button onClick={() => increment(product._id)}> + </button>
-                            </div> */}
+                            <h2 title={weddingPlan.title}>{weddingPlan.title}</h2>
+            
+                            <img src={weddingPlan.images_1.url} alt="" />
+
                             
+
+                            <Box>
+                                <Product_box>
+                                    <h2 title={weddingPlan.vendor_1}>{weddingPlan.vendor_1}</h2>
+                                    <h5>Service: {weddingPlan.category_1}</h5>
+                                    <span>Rs {weddingPlan.price_1} - Rs {weddingPlan.max_price_1}</span>
+                                    <p>{weddingPlan.description_1}</p>
+                                    {/* <h5>No: {weddingPlan.contact_number_1}</h5> */}
+                                    <h5>Address: {weddingPlan.address_1}</h5>
+                                </Product_box>
+                                <Product_box>
+                                    <h2 title={weddingPlan.vendor_2}>{weddingPlan.vendor_2}</h2>
+                                    <h5>Service: {weddingPlan.category_2}</h5>
+                                    <span>Rs {weddingPlan.price_2} - Rs {weddingPlan.max_price_2}</span>
+                                    <p>{weddingPlan.description_2}</p>
+                                    {/* <h5>No: {weddingPlan.contact_number_1}</h5> */}
+                                    <h5>Address: {weddingPlan.address_2}</h5>
+                                </Product_box>
+                                <Product_box>
+                                    <h2 title={weddingPlan.vendor_3}>{weddingPlan.vendor_3}</h2>
+                                    <h5>Service: {weddingPlan.category_3}</h5>
+                                    <span>Rs {weddingPlan.price_3} - Rs {weddingPlan.max_price_3}</span>
+                                    <p>{weddingPlan.description_3}</p>
+                                    {/* <h5>No: {weddingPlan.contact_number_1}</h5> */}
+                                    <h5>Address: {weddingPlan.address_3}</h5>
+                                </Product_box>
+                            </Box>
                             <div className="delete" 
-                            onClick={() => removeWishToBuy(product._id)}>
-                                <Button variant="contained" color="secondary">
-                                Remove Wish to Buy Vendor 
+                            onClick={() => removeWishToBuyWeddingPlans(weddingPlan._id)}>
+                                <Button variant="contained" color="inherit">
+                                Remove Wedding Plan
                                 </Button>
                             </div>
-                            <div className="row_btn">
 
-                                <Link to="/confirmed_vendors" className="cart"
-                                onClick={() => addConfirmedVendors(product)}>
-                                    Confirmed Vendor
+                            <div className="row_btn">
+                                <Link id="btn_view" to="#!" onClick={() => addConfirmedWeddingPlans(weddingPlan)}>
+                                            Confirm Wedding Plan
                                 </Link>
                             </div>
-                        </div>
+                        </Product_card>
+                        
                     </div>
                 ))
             }
@@ -189,6 +183,50 @@ function WishToBuy() {
         </div>
     )
 };
+
+const Product_card = styled.div`
+
+  width: 1000px;
+  overflow: hidden;
+  height: 590px;
+  padding: 15px;
+  box-shadow: 0 0 15px #03045e;
+  margin: 10px 100px;
+  position: relative;
+
+
+  img {
+  width: 100%;
+  height: 300px;
+  display: block;
+  object-fit: cover;
+  }
+
+  h2 {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: capitalize;
+  cursor: pointer;
+  color: #323232;
+  }
+  
+  span {
+  color: crimson;
+  }
+`;
+
+const Box = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+ 
+const Product_box = styled.div`
+    margin: 5px 5px;
+`;
+
+
 const Text1 = styled.div`
     margin: 5px;
     font-size: 22px;
@@ -274,7 +312,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-
+    
 `;
 
-export default WishToBuy
+export default ConfirmedWeddingPlans

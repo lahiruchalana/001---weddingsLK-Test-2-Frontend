@@ -42,7 +42,7 @@ const SideBarUser = (props) => {
                     <Row>
                         <a href="/user_dashboard_confirmed_vendors">
                             <YourService></YourService>
-                            <BtnYourServices>Confirmed Services</BtnYourServices>
+                            <BtnYourServices>Confirmed Vendors</BtnYourServices>
                         </a>
                     </Row>
                     <Row>
@@ -58,15 +58,21 @@ const SideBarUser = (props) => {
                         </a>
                     </Row>
                     <Row>
-                        <a href="/budget_report">
-                            <BugdetReport></BugdetReport>
-                            <BtnBugdetReport>Budget Report</BtnBugdetReport>
+                        <a href="/confirmed_wedding_plans">
+                            <WeddingPlan></WeddingPlan>
+                            <BtnWeddingPlan>C Wedding Plans</BtnWeddingPlan> 
                         </a>
                     </Row>
                     <Row>
-                        <a href="/">
+                        <a href="/wish_to_buy_wedding_plans">
                             <WeddingPlan></WeddingPlan>
-                            <BtnWeddingPlan>Wedding Plans</BtnWeddingPlan> 
+                            <BtnWeddingPlan>WL Wedding Plans</BtnWeddingPlan> 
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/budget_report">
+                            <BugdetReport></BugdetReport>
+                            <BtnBugdetReport>Budget Report</BtnBugdetReport>
                         </a>
                     </Row>
                     <Row>
@@ -75,12 +81,12 @@ const SideBarUser = (props) => {
                             <BtnCurrentVendors>Current Vendors</BtnCurrentVendors>
                         </a>
                     </Row>
-                    <Row>
+                    {/* <Row>
                         <a href="/">
                             <Messanger></Messanger>
                             <BtnMessanger>Messanger</BtnMessanger>
                         </a>
-                    </Row>
+                    </Row> */}
                     <RowLast>
                         <a href="/">
                             <Settings></Settings>

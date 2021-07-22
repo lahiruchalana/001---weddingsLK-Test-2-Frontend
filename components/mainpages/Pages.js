@@ -18,7 +18,7 @@ import CreateProduct from './createProduct/CreateProduct'
 import {GlobalState} from '../../GlobalState'
 import Home from '../home/Home'
 import AdminProfile from '../adminProfile/AdminProfile'
-import UserProfile from '../userProfile/UserProfile'
+import UserProfile from '../userProfile/UserProfileCart'
 import VendorManagement from '../adminProfile/VendorManagement'
 import Services from '../services/Services'
 import Example from '../budgetReport/BudgetReport'
@@ -29,6 +29,8 @@ import Galleries from '../galleries/Galleries'
 import EmployeeProfile from '../employeeProfile/EmployeeProfile'
 import DetailWeddingPlan from '../detailWeddingPlan/DetailWeddingPlan'
 import WeddingPlanManagement from '../adminProfile/WeddingPlanManagement'
+import ConfirmedWeddingPlans from '../userProfile/ConfirmedWeddingPlans'
+import WishToBuyWeddingPlans from '../userProfile/WishToBuyWeddingPlans'
 
 function Pages() {
     const state = useContext(GlobalState)
@@ -80,6 +82,8 @@ function Pages() {
             <Route path="/user_dashboard_confirmed_vendors" exact component={UserDashboardConfirmVendors} />
             <Route path="/wish_to_buy" exact component={WishToBuy} />
             <Route path="/user_dashboard_wish_to_buy" exact component={UserDashboardWishToBuy} />
+            <Route path="/confirmed_wedding_plans" exact component={ConfirmedWeddingPlans} />
+            <Route path="/wish_to_buy_wedding_plans" exact component={WishToBuyWeddingPlans} />
 
 
 

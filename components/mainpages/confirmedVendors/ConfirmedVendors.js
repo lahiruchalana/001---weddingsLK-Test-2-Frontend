@@ -6,6 +6,7 @@ import PaypalButton from '../../userProfile/PaypalButton'
 import Button from '@material-ui/core/Button';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
+import SideBarUser from '../../userProfile/SideBarUser';
 
 function ConfirmedVendors() {
     const state = useContext(GlobalState)
@@ -29,7 +30,7 @@ function ConfirmedVendors() {
     },[cart])
 
     const addToConfirmedVendors = async (confirmed_vendors) =>{
-        await axios.patch('/user/confirmed_vendors', {confirmed_vendors}, {
+        await axios.patch('/user/addconfirmed_vendors', {confirmed_vendors}, {
             headers: {Authorization: token}
         })
     }
@@ -84,7 +85,17 @@ function ConfirmedVendors() {
 
 
     if(confirmed_vendors.length === 0) 
-        return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Cart Empty</h2> 
+        return (<Content>
+            <Header/>
+            <SideBarUser/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+        <h2 style={{marginLeft: "250px", textAlign: "center", fontSize: "40px"}}>There is no any Confirmed Wedding Plans</h2>
+        </Content>);
+
 
     return (
         <div>
@@ -95,9 +106,9 @@ function ConfirmedVendors() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>This is your Confirmed Vendors</Text1>
+            <Text1>Your Confirmed Vendor Services</Text1>
             {
-                cart.map(product => (
+                confirmed_vendors.map(product => (
                     <div className="detail cart" key={product._id}>
                         <img src={product.images.url} alt="" />
                         
@@ -247,6 +258,10 @@ const LineLite1 = styled.div`
 const Container = styled.div`
     margin-right: 100px;
     margin-left: 100px;
+`;
+
+const Content = styled.div`
+
 `;
 
 export default ConfirmedVendors

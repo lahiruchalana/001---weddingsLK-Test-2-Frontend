@@ -109,9 +109,6 @@ const WeddingPlans = () => {
             <Content>
                 {/* ////////////////////////// Start of common page top section //////////////////// */}
 
-
-
-
                 <ContentWeddingPlan>
 
                     <br></br>
@@ -128,33 +125,20 @@ const WeddingPlans = () => {
                         </div>
                     }
 
-                    <div className="products">
+                    <Products>
                         {
                             weddingPlans.map(weddingPlan => {
                                 return <WeddingPlanItem key={weddingPlan._id} weddingPlan={weddingPlan}
                                 isAdmin={isAdmin} deleteWeddingPlan={deleteWeddingPlan} handleCheck={handleCheck} />
                             })
                         } 
-                    </div>
+                    </Products>
 
                     <LoadMore />
                     {weddingPlans.length === 0 && <Loading />}
 
 
                 </ContentWeddingPlan>
-                
-                
-                
-                
-                
-                
-                
-                
-
-
-
-
-
 
 
                 
@@ -985,6 +969,13 @@ const PCustomizedPlan = styled.div`
     width: 70%;
 `;
 
+const Products = styled.div`
+    width: 100%;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    justify-items: center;
+    margin: 20px 0;
+`;
 
 
 export default WeddingPlans;

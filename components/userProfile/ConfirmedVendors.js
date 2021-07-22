@@ -30,7 +30,7 @@ function ConfirmedVendors() {
     },[cart])
 
     const addToConfirmedVendors = async (confirmed_vendors) =>{
-        await axios.patch('/user/confirmed_vendors', {confirmed_vendors}, {
+        await axios.patch('/user/addconfirmed_vendors', {confirmed_vendors}, {
             headers: {Authorization: token}
         })
     }
@@ -58,7 +58,7 @@ function ConfirmedVendors() {
     //     addToCart(cart)
     // }
     ///////////// remove vendors /////////////
-    const removeProduct = id =>{
+    const removeConfirmedVendor = id =>{
         if(window.confirm("Do you want to Remove this Vendor?")){
             confirmed_vendors.forEach((item, index) => {
                 if(item._id === id){
@@ -85,7 +85,16 @@ function ConfirmedVendors() {
 
 
     if(confirmed_vendors.length === 0) 
-        return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Cart Empty</h2> 
+        return(<Content>
+            <Header/>
+            <SideBarUser/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+        <h2 style={{marginLeft: "250px", textAlign: "center", fontSize: "40px"}}>There is no any Confirmed Services of Vendors</h2>
+        </Content>);
 
     return (
         <div>
@@ -97,9 +106,9 @@ function ConfirmedVendors() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>This is your Confirmed Vendors</Text1>
+            <Text1>This is Your Confirmed Vendors</Text1>
             {
-                cart.map(product => (
+                confirmed_vendors.map(product => (
                     <div className="detail cart" key={product._id}>
                         <img src={product.images.url} alt="" />
                         
@@ -140,9 +149,9 @@ function ConfirmedVendors() {
                             </div> */}
                             
                             <div className="delete" 
-                            onClick={() => removeProduct(product._id)}>
+                            onClick={() => removeConfirmedVendor(product._id)}>
                                 <Button variant="contained" color="secondary">
-                                Remove Vendor
+                                Remove Confirmed Service of {product.title}
                                 </Button>
                             </div>
                         </div>
@@ -249,6 +258,10 @@ const LineLite1 = styled.div`
 const Container = styled.div`
     margin-right: 50px;
     margin-left: 250px;
+`;
+
+const Content = styled.div`
+
 `;
 
 export default ConfirmedVendors

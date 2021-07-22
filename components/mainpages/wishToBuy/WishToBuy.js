@@ -6,6 +6,9 @@ import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
+import SideBarUser from '../../userProfile/SideBarUser';
+import {Link} from 'react-router-dom'
+
 
 function WishToBuy() {
     const state = useContext(GlobalState)
@@ -14,6 +17,8 @@ function WishToBuy() {
     const [confirmed_vendors, setConfirmedVendors] = state.userAPI.confirmed_vendors
     const [token] = state.token
     const [total, setTotal] = useState(0)
+    const addConfirmedVendors = state.userAPI.addConfirmedVendors
+    const addWishToBuy = state.userAPI.addWishToBuy
 
     //////////////////get total of prices of [cart] //////////////////
     useEffect(() =>{
@@ -30,7 +35,7 @@ function WishToBuy() {
     },[cart])
 
     const addToWishToBuy = async (wish_to_buy) =>{
-        await axios.patch('/user/wish_to_buy', {wish_to_buy}, {
+        await axios.patch('/user/addwish_to_buy', {wish_to_buy}, {
             headers: {Authorization: token}
         })
     }
@@ -58,7 +63,7 @@ function WishToBuy() {
     //     addToCart(cart)
     // }
     ///////////// remove vendors /////////////
-    const removeProduct = id =>{
+    const removeWishToBuy = id =>{
         if(window.confirm("Do you want to Remove this Vendor?")){
             wish_to_buy.forEach((item, index) => {
                 if(item._id === id){
@@ -85,7 +90,17 @@ function WishToBuy() {
 
 
     if(wish_to_buy.length === 0) 
-        return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Cart Empty</h2> 
+        return (<Content>
+            <Header/>
+            <SideBarUser/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+        <h2 style={{marginLeft: "250px", textAlign: "center", fontSize: "40px"}}>There is no any Services of Vendors in the Wish to Buy</h2>
+        </Content>);
+ 
 
     return (
         <div>
@@ -96,9 +111,9 @@ function WishToBuy() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>This is your Wish To Buy Vendors</Text1>
+            <Text1>This is Your Wish To Buy Vendor Services</Text1>
             {
-                cart.map(product => (
+                wish_to_buy.map(product => (
                     <div className="detail cart" key={product._id}>
                         <img src={product.images.url} alt="" />
                         
@@ -139,10 +154,23 @@ function WishToBuy() {
                             </div> */}
                             
                             <div className="delete" 
-                            onClick={() => removeProduct(product._id)}>
+                            onClick={() => removeWishToBuy(product._id)}>
                                 <Button variant="contained" color="secondary">
                                 Remove Vendor
                                 </Button>
+                            </div>
+
+                            <div className="row_btn">
+
+                                <Link to="/confirmed_vendors" className="cart"
+                                onClick={() => addConfirmedVendors(product)}>
+                                    Confirmed Vendor
+                                </Link>
+                                <Link to="/wish_to_buy" className="cart"
+                                onClick={() => addWishToBuy(product)}>
+                                    Wish To Buy
+                                </Link>
+
                             </div>
                         </div>
                     </div>
@@ -248,6 +276,10 @@ const LineLite1 = styled.div`
 const Container = styled.div`
     margin-right: 100px;
     margin-left: 100px;
+`;
+
+const Content = styled.div`
+
 `;
 
 export default WishToBuy

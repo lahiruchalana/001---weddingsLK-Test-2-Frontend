@@ -5,7 +5,7 @@ import {GlobalState} from '../../../GlobalState'
 function BtnRender({weddingPlan, deleteWeddingPlan}) {
     const state = useContext(GlobalState)
     const [isAdmin] = state.userAPI.isAdmin
-    const addCart = state.userAPI.addCart
+    const addWishToBuyWeddingPlans = state.userAPI.addWishToBuyWeddingPlans
 
     
     return (
@@ -25,9 +25,9 @@ function BtnRender({weddingPlan, deleteWeddingPlan}) {
 
                 {/* /////////// only provide view option in here ///////////////// */}
                 
-                    {/* <Link id="btn_buy" to="#!" onClick={() => addCart(weddingPlan)}>
-                        Buy
-                    </Link> */}
+                    <Link id="btn_buy" to="#!" onClick={() => addWishToBuyWeddingPlans(weddingPlan)}>
+                        Add to Wish List
+                    </Link>
 
                     <Link id="btn_view" to={`/detail_wedding_plan/${weddingPlan._id}`}>
                         View

@@ -83,6 +83,12 @@ function UserItem({user, isAdmin, deleteProduct, handleCheck}) {
                                 }
                             </>
                         )})}</div>
+                        
+                        {/* { user.emp_name == '' ?  :  
+                        
+                        } */}
+
+
                     </div>
                 </Product_card>
             }

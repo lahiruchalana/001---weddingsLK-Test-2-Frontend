@@ -5,9 +5,17 @@ import Settings from '@material-ui/icons/SettingsApplications';
 import HomeIcon from '@material-ui/icons/Home';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import DescriptionIcon from '@material-ui/icons/Description';
-import React from "react";
+import {GlobalState} from '../../GlobalState'
+import React, {useContext, useState, useEffect} from 'react'
+import { Button } from '@material-ui/core';
 
 const SideBarEmployee = (props) => {
+
+    
+    const state = useContext(GlobalState)
+    const [user] = state.userAPI.user
+
+
     return (
         <Container>
             <Content>
@@ -53,6 +61,19 @@ const SideBarEmployee = (props) => {
                     </RowLast>
                 </NavBar>
             </Content>
+            { user.name == '' ? '' :
+                <CommunityButton>
+                    <Button style={{
+                        // borderRadius: 35,
+                        backgroundColor: "#f8961e"
+                        // padding: "18px 36px",
+                        // fontSize: "18px"
+                        }}
+                        data-aos="fade-left" size="large" variant="contained" color="gray" href="/user_profile" >
+                        {user.name}
+                    </Button>
+                </CommunityButton>
+            }
         </Container>
     );
 };
@@ -164,6 +185,12 @@ const RowLast = styled.div`
     } 
 `;
 
-    
+const CommunityButton = styled.div`
+    position: fixed;
+    right: 0;
+    top: 80px;
+    z-index: 3;
+    color: white;
+`;
 
 export default SideBarEmployee;

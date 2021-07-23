@@ -110,7 +110,8 @@ function ConfirmedWeddingPlans() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>Your Wish List of Wedding Plans</Text1>
+            <TextTitle>Your Wish List of Wedding Plans</TextTitle>
+            <br></br>
             {
                 wish_to_buy_wedding_plans.map(weddingPlan => (
                     <div key={weddingPlan._id}>
@@ -181,10 +182,20 @@ function ConfirmedWeddingPlans() {
             </div> */}
         </div>
         </Container>
+        <br></br>
+        <br></br>
         <Footer/>
         </div>
     )
 };
+
+const TextTitle = styled.div`
+    margin: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: darkblue;
+    text-transform: uppercase;
+`;
 
 const Product_card = styled.div`
 

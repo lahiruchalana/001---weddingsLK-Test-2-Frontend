@@ -11,12 +11,23 @@ import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom'
 
 
-
-
 const UserProfileCart = (props) => {
 
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
+
+
+
+
+
+/////////// If i use setUser and setName there should use another code ////////////////////
+    const [user] = state.userAPI.user
+    const [name] = state.userAPI.name
+/////////// If i use setUser and setName there should use another code ////////////////////
+
+
+
+
     const [token] = state.token
     const [total, setTotal] = useState(0)
     const addConfirmedVendors = state.userAPI.addConfirmedVendors
@@ -40,30 +51,6 @@ const UserProfileCart = (props) => {
             headers: {Authorization: token}
         })
     }
-
-
-    const increment = (id) =>{
-        cart.forEach(item => {
-            if(item._id === id){
-                item.quantity += 1
-            }
-        })
-
-        setCart([...cart])
-        addToCart(cart)
-    }
-
-    const decrement = (id) =>{
-        cart.forEach(item => {
-            if(item._id === id){
-                item.quantity === 1 ? item.quantity = 1 : item.quantity -= 1
-            }
-        })
-
-        setCart([...cart])
-        addToCart(cart)
-    }
-
     const removeProduct = id =>{
         if(window.confirm("Do you want to delete this product?")){
             cart.forEach((item, index) => {
@@ -76,7 +63,6 @@ const UserProfileCart = (props) => {
             addToCart(cart)
         }
     }
-
     const tranSuccess = async(payment) => {
         const {paymentID, address} = payment;
 
@@ -89,9 +75,6 @@ const UserProfileCart = (props) => {
         alert("You have successfully placed an order.")
     }
 
-
-
-
     return (
         <Container>
             <Header/>
@@ -100,10 +83,12 @@ const UserProfileCart = (props) => {
             <br></br>
             <br></br>
             <br></br>
-            <br></br>
+
             
             <Content>
-            <Text1>Your Cart of Vendor Services</Text1>
+            <TextTitle>{user.name}'s Cart of Vendor Services</TextTitle>
+
+            
             <div>
 
 
@@ -195,6 +180,15 @@ const UserProfileCart = (props) => {
         </Container>   
     );
 };
+
+
+const TextTitle = styled.div`
+    margin: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: darkblue;
+    text-transform: uppercase;
+`;
 
 const Container = styled.div`
 

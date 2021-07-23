@@ -14,12 +14,16 @@ import CheckCircleTwoToneIcon from '@material-ui/icons/CheckCircleTwoTone';
 
 import React, {useContext, useState, useEffect} from 'react'
 import {GlobalState} from '../../GlobalState'
+import { Button } from '@material-ui/core';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+
 
 const SideBarUser = (props) => {
 
 
     
     const state = useContext(GlobalState)
+    const [user] = state.userAPI.user
     // const [user, setUser] = state.userAPI.user
 
 
@@ -36,7 +40,7 @@ const SideBarUser = (props) => {
                             <img src= "../images/Logo.png"/> 
                         </a>
                     </Logo>
-                    <TxtCoupleNames>Lahiru Chalana</TxtCoupleNames>
+                    <TxtCoupleNames>My Profile</TxtCoupleNames>
                     <Row>
                         <a href="/">
                             <HomeIcon></HomeIcon>
@@ -81,6 +85,12 @@ const SideBarUser = (props) => {
                     </Row>
                     <Row>
                         <a href="/">
+                            <AccountBoxIcon></AccountBoxIcon>
+                            <BtnYourServices>Your Info</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/">
                             <CurrentVendors></CurrentVendors>
                             <BtnCurrentVendors>Current Vendors</BtnCurrentVendors>
                         </a>
@@ -97,8 +107,45 @@ const SideBarUser = (props) => {
                             <BtnSettings>Settings</BtnSettings>
                         </a>
                     </RowLast>
+                    
                 </NavBar>
             </Content>
+            { user.name == '' ? '' :
+                <CommunityButton>
+                    <Button style={{
+                        // borderRadius: 35,
+                        backgroundColor: "#b5179e"
+                        // padding: "18px 36px",
+                        // fontSize: "18px"
+                        }}
+                        data-aos="fade-left" size="large" variant="contained" color="gray" href="/user_profile" >
+                        {user.name}
+                    </Button>
+                </CommunityButton>
+            }
+            { user.emp_name == '' ? <CommunityButton2>
+                    <Button style={{
+                        // borderRadius: 35,
+                        backgroundColor: "#b5e48c"
+                        // padding: "18px 36px",
+                        // fontSize: "18px"
+                        }}
+                        data-aos="fade-left" size="small" variant="contained" color="gray" href="/user_profile" >
+                        Employee - Not Assigned
+                    </Button>
+                </CommunityButton2> :
+                <CommunityButton2>
+                    <Button style={{
+                        // borderRadius: 35,
+                        backgroundColor: "#b5e48c"
+                        // padding: "18px 36px",
+                        // fontSize: "18px"
+                        }}
+                        data-aos="fade-left" size="small" variant="contained" color="gray" href="/user_profile" >
+                        Employee - {user.emp_name}
+                    </Button>
+                </CommunityButton2>
+            }
         </Container>
     );
 };
@@ -164,7 +211,7 @@ const TxtCoupleNames = styled.div`
     width: 210px;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding: 10px 30px;
+    padding: 10px 60px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     background-color: #FFFFFF;
@@ -210,6 +257,23 @@ const RowLast = styled.div`
         text-decoration: none;
         color: white;
     } 
+`;
+
+
+const CommunityButton = styled.div`
+    position: fixed;
+    right: 0;
+    top: 80px;
+    z-index: 3;
+    color: white;
+`;
+
+const CommunityButton2 = styled.div`
+    position: fixed;
+    right: 0;
+    top: 140px;
+    z-index: 3;
+    color: white;
 `;
 
 

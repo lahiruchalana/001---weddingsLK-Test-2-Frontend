@@ -106,7 +106,7 @@ function ConfirmedVendors() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>Your Confirmed Vendors</Text1>
+            <TextTitle>Your Confirmed Vendors</TextTitle>
             {
                 confirmed_vendors.map(product => (
                     <div className="detail cart" key={product._id}>
@@ -177,6 +177,13 @@ function ConfirmedVendors() {
         </div>
     )
 };
+const TextTitle = styled.div`
+    margin: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: darkblue;
+    text-transform: uppercase;
+`;
 const Text1 = styled.div`
     margin: 5px;
     font-size: 22px;

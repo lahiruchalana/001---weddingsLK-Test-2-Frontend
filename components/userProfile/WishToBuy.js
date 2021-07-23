@@ -112,7 +112,7 @@ function WishToBuy() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>Your Vendors of Wish To Buy List</Text1>
+            <TextTitle>Your Vendors of Wish To Buy List</TextTitle>
             {
                 wish_to_buy.map(product => (
                     <div className="detail cart" key={product._id}>
@@ -190,6 +190,14 @@ function WishToBuy() {
         </div>
     )
 };
+
+const TextTitle = styled.div`
+    margin: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: darkblue;
+    text-transform: uppercase;
+`;
 const Text1 = styled.div`
     margin: 5px;
     font-size: 22px;

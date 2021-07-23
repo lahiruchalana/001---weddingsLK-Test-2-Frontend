@@ -1,9 +1,9 @@
 .product_card {
-  max-width: 300px;
+  width: 400px;
   overflow: hidden;
   height: 600px;
   padding: 15px;
-  box-shadow: 0 0 15px #ddd;
+  box-shadow: 0 0 15px rgb(155, 9, 130);
   margin: 10px 0;
   position: relative;
 }

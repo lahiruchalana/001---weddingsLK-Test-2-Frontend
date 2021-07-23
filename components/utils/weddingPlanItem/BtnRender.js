@@ -25,7 +25,7 @@ function BtnRender({weddingPlan, deleteWeddingPlan}) {
 
                 {/* /////////// only provide view option in here ///////////////// */}
                 
-                    <Link id="btn_buy" to="#!" onClick={() => addWishToBuyWeddingPlans(weddingPlan)}>
+                    <Link id="btn_buy" to="/wish_to_buy_wedding_plans" onClick={() => addWishToBuyWeddingPlans(weddingPlan)}>
                         Add to Wish List
                     </Link>
 

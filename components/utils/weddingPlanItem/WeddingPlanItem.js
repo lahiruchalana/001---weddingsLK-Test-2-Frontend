@@ -33,12 +33,15 @@ function WeddingPlanItem({weddingPlan, isAdmin, deleteWeddingPlan, handleCheck})
                     <h5>Address: {weddingPlan.address_2}</h5>
                 </Product_box>
                 <Product_box>
+                    { weddingPlan.vendor_3 == "" ? null : <div>
                     <h2 title={weddingPlan.vendor_3}>{weddingPlan.vendor_3}</h2>
                     <h5>Service: {weddingPlan.category_3}</h5>
                     <span>Rs {weddingPlan.price_3} - Rs {weddingPlan.max_price_3}</span>
                     <p>{weddingPlan.description_3}</p>
                     {/* <h5>No: {weddingPlan.contact_number_1}</h5> */}
                     <h5>Address: {weddingPlan.address_3}</h5>
+                    </div>
+                }
                 </Product_box>
             </Box>
 
@@ -52,7 +55,7 @@ const Product_card = styled.div`
 
   width: 1200px;
   overflow: hidden;
-  height: 580px;
+  height: 620px;
   padding: 15px;
   box-shadow: 0 0 15px #03045e;
   margin: 10px 100px;

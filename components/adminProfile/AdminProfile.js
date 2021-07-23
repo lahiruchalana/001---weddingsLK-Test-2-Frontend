@@ -78,8 +78,7 @@ function AdminProfile() {
                 <br></br>
                 <br></br>
                 <br></br>
-                <br></br>
-                <br></br>
+
                 {/* ////////////////// category issue comes from (Filters) ///////////////// */}
                 {/* <Filters /> */}
 
@@ -92,6 +91,8 @@ function AdminProfile() {
                 <button onClick={deleteAll}>Delete ALL</button>
             </div>
         } */}
+
+        <Text4>Users</Text4>
 
         <div className="products">
             {
@@ -128,5 +129,12 @@ const Bg = styled.div`
     background-color: #FFF;
 `;
 
+const Text4 = styled.div`
+    margin-left: 25px;
+    font-size: 25px;
+    color: rgb(78, 6, 69);
+    font-weight: 700;
+    text-transform: uppercase;
+`;
 
 export default AdminProfile;

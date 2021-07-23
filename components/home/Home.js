@@ -74,7 +74,7 @@ const Home = (props) => {
                 </AnimatedImages>
 
                 <BtnHostYourWedding data-aos="fade" >
-                    <a href="/user/auth" class='button hvr-grow-shadow' >
+                    <a href="/login" class='button hvr-grow-shadow' >
                         <BtnHostYourWeddingText>HOST YOUR WEDDING</BtnHostYourWeddingText>
                     </a>
                 </BtnHostYourWedding>

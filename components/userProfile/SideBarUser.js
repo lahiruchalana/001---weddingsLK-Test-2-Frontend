@@ -7,6 +7,10 @@ import Messanger from '@material-ui/icons/Message';
 import Settings from '@material-ui/icons/SettingsApplications';
 import HomeIcon from '@material-ui/icons/Home';
 import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import CheckCircleTwoToneIcon from '@material-ui/icons/CheckCircleTwoTone';
 
 import React, {useContext, useState, useEffect} from 'react'
 import {GlobalState} from '../../GlobalState'
@@ -40,26 +44,26 @@ const SideBarUser = (props) => {
                         </a>
                     </Row>
                     <Row>
-                        <a href="/user_dashboard_confirmed_vendors">
-                            <YourService></YourService>
-                            <BtnYourServices>Confirmed Vendors</BtnYourServices>
-                        </a>
-                    </Row>
-                    <Row>
-                        <a href="/user_dashboard_wish_to_buy">
-                            <YourService></YourService>
-                            <BtnYourServices>Wish To Buy</BtnYourServices>
-                        </a>
-                    </Row>
-                    <Row>
                         <a href="/user_profile">
-                        <AddToPhotosIcon></AddToPhotosIcon>
+                        <ShoppingCartIcon></ShoppingCartIcon>
                             <BtnYourServices>Your Cart</BtnYourServices>
                         </a>
                     </Row>
                     <Row>
+                        <a href="/user_dashboard_wish_to_buy">
+                            <AddShoppingCartIcon></AddShoppingCartIcon>
+                            <BtnYourServices>Wish To Buy</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/user_dashboard_confirmed_vendors">
+                            <AssignmentTurnedInIcon></AssignmentTurnedInIcon>
+                            <BtnYourServices>Confirmed Vendors</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
                         <a href="/confirmed_wedding_plans">
-                            <WeddingPlan></WeddingPlan>
+                            <CheckCircleTwoToneIcon></CheckCircleTwoToneIcon>
                             <BtnWeddingPlan>C Wedding Plans</BtnWeddingPlan> 
                         </a>
                     </Row>

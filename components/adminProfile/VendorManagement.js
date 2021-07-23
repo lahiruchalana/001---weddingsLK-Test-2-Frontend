@@ -152,8 +152,12 @@ const VendorManagement = () => {
             <br></br>
             <br></br>
             
+
+            <Text4>Vendor Management</Text4>
+
             <Content>
             
+
 
             <div className="create_product">
             <div className="upload">
@@ -298,5 +302,12 @@ const Bg = styled.div`
     background-color: #FFF;
 `;
 
+const Text4 = styled.div`
+    margin-left: 265px;
+    font-size: 25px;
+    color: rgb(78, 6, 69);
+    font-weight: 700;
+    text-transform: uppercase;
+`;
 
 export default VendorManagement;

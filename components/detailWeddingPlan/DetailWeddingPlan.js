@@ -74,10 +74,10 @@ function DetailProduct() {
 
                 <div className="row_btn">
 
-                    <Link id="btn_buy" to="#!" onClick={() => addWishToBuyWeddingPlans(detailWeddingPlan)}>
+                    <Link id="btn_buy" to="/wish_to_buy_wedding_plans" onClick={() => addWishToBuyWeddingPlans(detailWeddingPlan)}>
                                 Add to Wish List
                     </Link>
-                    <Link id="btn_view" to="#!" onClick={() => addConfirmedWeddingPlans(detailWeddingPlan)}>
+                    <Link id="btn_view" to="/confirmed_wedding_plans" onClick={() => addConfirmedWeddingPlans(detailWeddingPlan)}>
                                 Confirm Wedding Plan
                     </Link>
 

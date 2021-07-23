@@ -112,15 +112,15 @@ function WishToBuy() {
             <br></br>
             <br></br>
             <br></br>
-            <Text1>This is Your Vendors of Wish To Buy List</Text1>
+            <Text1>Your Vendors of Wish To Buy List</Text1>
             {
                 wish_to_buy.map(product => (
                     <div className="detail cart" key={product._id}>
-                        <img src={product.images.url} alt="" />
-                        
-                        <div className="box-detail">
-                        <h2>{product.title}</h2>
-                        <LineLite1></LineLite1>
+                    <img src={product.images.url} alt="" />
+                    
+                    <div className="box-detail">
+                    <h2>{product.title}</h2>
+                    <LineLite1></LineLite1>
                     <h4>Rs {product.price} - {product.max_price}</h4>
                     <LineLite1></LineLite1>
                     <h4>{product.address_line_1}</h4>
@@ -128,11 +128,12 @@ function WishToBuy() {
                     <Text5>{product.description}</Text5>
                     <Line3></Line3>
                     <Text6>{product.content}</Text6>
-                    <Text1>{product.content_2}</Text1>
+                    <Line3></Line3>
+                    <Text5>{product.content_2}</Text5>
                     <LineLite1></LineLite1>
                     <div className="row">
-                    <Text2>{product.content_3}</Text2>
-                    <Text2>{product.content_4}</Text2>
+                    <Text7>{product.content_3}</Text7>
+                    <Text7>{product.content_4}</Text7>
                     </div>
                     <LineLite1></LineLite1>
                         <Text2>{product.content_5}</Text2>
@@ -199,28 +200,40 @@ const Text2 = styled.div`
     margin: 5px;
     font-size: 20px;
     color: darkgreen;
+    text-transform: lowercase;
 `;
 const Text3 = styled.div`
     margin: 5px;
     font-size: 20px;
     color: darkred;
+    text-transform: lowercase;
 `;
 const Text4 = styled.div`
     margin: 5px;
     font-size: 20px;
     color: darkviolet;
+    text-transform: lowercase;
 `;
 const Text5 = styled.div`
     margin: 5px;
     font-size: 20px;
     color: darkcyan;
     text-align: center;
+    text-transform: lowercase;
 `;
 const Text6 = styled.div`
     margin: 5px;
     font-size: 20px;
     color: darkslategray;
     text-align: center;
+    text-transform: lowercase;
+`;
+const Text7 = styled.div`
+    margin: 5px;
+    font-size: 20px;
+    color: darkslategray;
+    text-align: left;
+    text-transform: uppercase;
 `;
 const Line1 = styled.div`
     padding: 2px;

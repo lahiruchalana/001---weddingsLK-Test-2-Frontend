@@ -22,13 +22,15 @@ import UserProfile from '../userProfile/UserProfileCart'
 import VendorManagement from '../adminProfile/VendorManagement'
 import Services from '../services/Services'
 import Example from '../budgetReport/BudgetReport'
-import AdminServices from '../adminProfile/AdminServices'
+import AdminServices from '../adminProfile/ServicesManagement'
 import WeddingPlans from '../weddingPlans/WeddingPlans'
 import Shop from '../shop/Shop'
 import Galleries from '../galleries/Galleries'
 import EmployeeProfile from '../employeeProfile/EmployeeProfile'
 import DetailWeddingPlan from '../detailWeddingPlan/DetailWeddingPlan'
 import WeddingPlanManagement from '../adminProfile/WeddingPlanManagement'
+import ConfirmedCustomers from '../adminProfile/ConfirmedCustomers'
+import CustomersWishList from '../adminProfile/CustomersWishList'
 import ConfirmedWeddingPlans from '../userProfile/ConfirmedWeddingPlans'
 import WishToBuyWeddingPlans from '../userProfile/WishToBuyWeddingPlans'
 
@@ -67,6 +69,8 @@ function Pages() {
 
             <Route path="/admin_profile" exact component={isAdmin ? AdminProfile : NotFound} />
             <Route path="/vendor_management" exact component={isAdmin ? VendorManagement : NotFound} />
+            <Route path="/confirmed_customers" exact component={isAdmin ? ConfirmedCustomers : NotFound} />
+            <Route path="/customers_wishlist" exact component={isAdmin ? CustomersWishList : NotFound} />
 
             <Route path="/history" exact component={isLogged ? OrderHistory : NotFound} />
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />

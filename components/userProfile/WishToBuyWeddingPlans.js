@@ -139,14 +139,16 @@ function ConfirmedWeddingPlans() {
                                     {/* <h5>No: {weddingPlan.contact_number_1}</h5> */}
                                     <h5>Address: {weddingPlan.address_2}</h5>
                                 </Product_box>
-                                <Product_box>
-                                    <h2 title={weddingPlan.vendor_3}>{weddingPlan.vendor_3}</h2>
-                                    <h5>Service: {weddingPlan.category_3}</h5>
-                                    <span>Rs {weddingPlan.price_3} - Rs {weddingPlan.max_price_3}</span>
-                                    <p>{weddingPlan.description_3}</p>
-                                    {/* <h5>No: {weddingPlan.contact_number_1}</h5> */}
-                                    <h5>Address: {weddingPlan.address_3}</h5>
-                                </Product_box>
+                                { weddingPlan.vendor_3 == '' ? '' :
+                                    <Product_box>
+                                        <h2 title={weddingPlan.vendor_3}>{weddingPlan.vendor_3}</h2>
+                                        <h5>Service: {weddingPlan.category_3}</h5>
+                                        <span>Rs {weddingPlan.price_3} - Rs {weddingPlan.max_price_3}</span>
+                                        <p>{weddingPlan.description_3}</p>
+                                        {/* <h5>No: {weddingPlan.contact_number_1}</h5> */}
+                                        <h5>Address: {weddingPlan.address_3}</h5>
+                                    </Product_box>
+                                }
                             </Box>
                             <div className="delete" 
                             onClick={() => removeWishToBuyWeddingPlans(weddingPlan._id)}>
@@ -156,7 +158,7 @@ function ConfirmedWeddingPlans() {
                             </div>
 
                             <div className="row_btn">
-                                <Link id="btn_view" to="#!" onClick={() => addConfirmedWeddingPlans(weddingPlan)}>
+                                <Link id="btn_view" to="/confirmed_wedding_plans" onClick={() => addConfirmedWeddingPlans(weddingPlan)}>
                                             Confirm Wedding Plan
                                 </Link>
                             </div>

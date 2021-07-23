@@ -12,6 +12,9 @@ import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import PermMediaIcon from '@material-ui/icons/PermMedia';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import AssessmentIcon from '@material-ui/icons/Assessment';
+import ContactsIcon from '@material-ui/icons/Contacts';
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import React from "react";
 
 const SideBarAdmin = (props) => {
@@ -35,15 +38,21 @@ const SideBarAdmin = (props) => {
                         </a>
                     </Row>
                     <Row>
-                        <a href="/">
-                            <HomeIcon></HomeIcon>
+                        <a href="/admin_profile">
+                            <ContactsIcon></ContactsIcon>
+                            <BtnYourServices>Users</BtnYourServices>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/confirmed_customers">
+                            <PlaylistAddCheckIcon></PlaylistAddCheckIcon>
                             <BtnYourServices>Confirmed Customers</BtnYourServices>
                         </a>
                     </Row>
                     <Row>
-                        <a href="/admin_profile">
-                            <HomeIcon></HomeIcon>
-                            <BtnYourServices>Customer's Cart</BtnYourServices>
+                        <a href="/customers_wishlist">
+                            <ShoppingCartIcon></ShoppingCartIcon>
+                            <BtnYourServices>Customer's WishList</BtnYourServices>
                         </a>
                     </Row>
                     <Row>
@@ -55,25 +64,13 @@ const SideBarAdmin = (props) => {
                     <Row>
                         <a href="/admin_services">
                             <YourService></YourService>
-                            <BtnMessanger>Our Services</BtnMessanger>
+                            <BtnMessanger>Service Management</BtnMessanger>
                         </a>
                     </Row>
                     <Row>
                         <a href="/create_weddingPlan">
-                            <WeddingPlan></WeddingPlan>
-                            <BtnWeddingPlan>Wedding Plan Mngmt</BtnWeddingPlan> 
-                        </a>
-                    </Row>
-                    <Row>
-                        <a href="/">
-                            <WeddingPlan></WeddingPlan>
-                            <BtnWeddingPlan>Tasks in Progress</BtnWeddingPlan> 
-                        </a>
-                    </Row>
-                    <Row>
-                        <a href="/">
                             <PlaylistAddIcon></PlaylistAddIcon>
-                            <BtnCurrentVendors>Pending Weddings</BtnCurrentVendors>
+                            <BtnWeddingPlan>WedPlan Management</BtnWeddingPlan> 
                         </a>
                     </Row>
                     <Row>
@@ -84,22 +81,34 @@ const SideBarAdmin = (props) => {
                     </Row>
                     <Row>
                         <a href="/">
+                            <AssignmentIndIcon></AssignmentIndIcon>
+                            <BtnMessanger>Employee Progress</BtnMessanger>
+                        </a>
+                    </Row>
+                    <Row>
+                        <a href="/">
+                            <WeddingPlan></WeddingPlan>
+                            <BtnWeddingPlan>Tasks in Progress</BtnWeddingPlan> 
+                        </a>
+                    </Row>
+                    {/* <Row>
+                        <a href="/">
+                            <AssessmentIcon></AssessmentIcon>
+                            <BtnCurrentVendors>Pending Weddings</BtnCurrentVendors>
+                        </a>
+                    </Row> */}
+                    {/* <Row>
+                        <a href="/">
                             <AddToPhotosIcon></AddToPhotosIcon>
                             <BtnMessanger>Add New Services</BtnMessanger>
                         </a>
-                    </Row>
+                    </Row> */}
                     {/* <Row>
                         <a href="/">
                             <EventIcon></EventIcon>
                             <BtnMessanger>Schedule</BtnMessanger>
                         </a>
                     </Row> */}
-                    <Row>
-                        <a href="/">
-                            <AssignmentIndIcon></AssignmentIndIcon>
-                            <BtnMessanger>Employee Progress</BtnMessanger>
-                        </a>
-                    </Row>
                     <Row>
                         <a href="/">
                             <PermMediaIcon></PermMediaIcon>

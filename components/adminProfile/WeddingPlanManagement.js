@@ -167,6 +167,10 @@ const WeddingPlanManagement = () => {
             <br></br>
             <br></br>
             
+
+            <Text4>Wedding Plan Management</Text4>
+
+
             <Content>
             
 
@@ -310,19 +314,19 @@ const WeddingPlanManagement = () => {
 
                 <div className="row">
                     <label htmlFor="title">Vendor Name</label>
-                    <input type="text" name="vendor_3" id="vendor_3" required
+                    <input type="text" name="vendor_3" id="vendor_3" 
                     value={weddingPlan.vendor_3} onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="title">Category of Vendor</label>
-                    <input type="text" name="category_3" id="category_3" required
+                    <input type="text" name="category_3" id="category_3" 
                     value={weddingPlan.category_3} onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="price">Price</label>
-                    <input type="number" name="price_3" id="price_3" required
+                    <input type="number" name="price_3" id="price_3" 
                     value={weddingPlan.price_3} onChange={handleChangeInput} />
                 </div>
                 <div className="row">
@@ -333,13 +337,13 @@ const WeddingPlanManagement = () => {
 
                 <div className="row">
                     <label htmlFor="description">Description</label>
-                    <textarea type="text" name="description_3" id="description_3" required
+                    <textarea type="text" name="description_3" id="description_3" 
                     value={weddingPlan.description_3} rows="5" onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="title">Address</label>
-                    <input type="text" name="address_3" id="address_3" required
+                    <input type="text" name="address_3" id="address_3" 
                     value={weddingPlan.address_3} onChange={handleChangeInput} />
                 </div>
                 
@@ -378,5 +382,12 @@ const Bg = styled.div`
     background-color: #FFF;
 `;
 
+const Text4 = styled.div`
+    margin-left: 265px;
+    font-size: 25px;
+    color: rgb(78, 6, 69);
+    font-weight: 700;
+    text-transform: uppercase;
+`;
 
 export default WeddingPlanManagement;

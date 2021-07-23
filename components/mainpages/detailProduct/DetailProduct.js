@@ -71,11 +71,11 @@ function DetailProduct() {
                     <LineLite1></LineLite1>
                     <Link to="/cart" className="cart"
                     onClick={() => addCart(detailProduct)}>
-                        Buy Now
+                        Add to Cart Now
                     </Link>
                     <Link to="/confirmed_vendors" className="cart"
                     onClick={() => addConfirmedVendors(detailProduct)}>
-                        Confirmed Vendor
+                        Confirm Vendor
                     </Link>
                     <Link to="/wish_to_buy" className="cart"
                     onClick={() => addWishToBuy(detailProduct)}>

@@ -12,6 +12,12 @@ function UserInfoAPI() {
     const [page, setPage] = useState(1)
     const [result, setResult] = useState(0)
 
+    const [emp_name, setEmpName] = useState([])
+    const [emp_contact, setEmpContact] = useState([])
+    const [progress, setProgress] = useState(0)
+    const [progress2, setProgress2] = useState(1)
+    const [progress3, setProgress3] = useState(2)
+
     useEffect(() =>{
         const getUsers = async () => {
                 ////// category -> role karanna balanna
@@ -31,7 +37,14 @@ function UserInfoAPI() {
         sort: [sort, setSort],
         search: [search, setSearch],
         page: [page, setPage],
-        result: [result, setResult]
+        result: [result, setResult],
+
+        emp_name: [emp_name, setEmpName],
+        emp_contact: [emp_contact, setEmpContact],
+        progress: [progress, setProgress],
+        progress2: [progress2, setProgress2],
+        progress3: [progress3, setProgress3]
+
     }
 }
 

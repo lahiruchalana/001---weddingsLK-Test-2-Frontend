@@ -33,6 +33,7 @@ import ConfirmedCustomers from '../adminProfile/ConfirmedCustomers'
 import CustomersWishList from '../adminProfile/CustomersWishList'
 import ConfirmedWeddingPlans from '../userProfile/ConfirmedWeddingPlans'
 import WishToBuyWeddingPlans from '../userProfile/WishToBuyWeddingPlans'
+import CurrentEmployees from '../adminProfile/CurrentEmployees'
 
 function Pages() {
     const state = useContext(GlobalState)
@@ -71,6 +72,7 @@ function Pages() {
             <Route path="/vendor_management" exact component={isAdmin ? VendorManagement : NotFound} />
             <Route path="/confirmed_customers" exact component={isAdmin ? ConfirmedCustomers : NotFound} />
             <Route path="/customers_wishlist" exact component={isAdmin ? CustomersWishList : NotFound} />
+            <Route path="/current_emp" exact component={isAdmin ? CurrentEmployees : NotFound} />
 
             <Route path="/history" exact component={isLogged ? OrderHistory : NotFound} />
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />

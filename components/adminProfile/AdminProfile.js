@@ -92,12 +92,12 @@ function AdminProfile() {
             </div>
         } */}
 
-        <Text4>Users</Text4>
+        <Text4>Customer Details</Text4>
 
         <div className="products">
             {
                 users.map(user => {
-                    return <UserItem key={user._id} user={user} />
+                    return user.role == 0 ? <UserItem key={user._id} user={user} /> : null
                     // isAdmin={isAdmin} deleteProduct={deleteProduct} handleCheck={handleCheck} />
                 })
             } 

@@ -82,21 +82,21 @@ const SideBarAdmin = (props) => {
                         </a>
                     </Row>
                     <Row>
-                        <a href="/">
+                        <a href="/current_emp">
                             <AssignmentIndIcon></AssignmentIndIcon>
                             <BtnMessanger>Current Employees</BtnMessanger>
                         </a>
                     </Row>
                     <Row>
                         <a href="/">
-                            <WeddingPlan></WeddingPlan>
-                            <BtnWeddingPlan>Weddings in Progress</BtnWeddingPlan> 
+                            <AssignmentLateIcon></AssignmentLateIcon>
+                            <BtnWeddingPlan>Weddings not Assigned</BtnWeddingPlan> 
                         </a>
                     </Row>
                     <Row>
                         <a href="/">
-                            <AssignmentLateIcon></AssignmentLateIcon>
-                            <BtnWeddingPlan>Not Comleted Weddings</BtnWeddingPlan> 
+                            <WeddingPlan></WeddingPlan>
+                            <BtnWeddingPlan>Weddings in Progress</BtnWeddingPlan> 
                         </a>
                     </Row>
                     <Row>
